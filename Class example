@@ -1,11 +1,12 @@
 SpawnPoint(float x, float y){
-  float x = transform.position.x;
-  float y = transform.position.y;
+  float_x = transform.position.x;
+  float_y = transform.position.y;
+  Instantiate(gameObject.Enemy, float_x, float_y);
 }
 
 Class Enemy{
 
   int health = 0;
-  SpawnPoint():
+  SpawnPoint();
 }
   
