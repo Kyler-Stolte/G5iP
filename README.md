@@ -4,7 +4,7 @@ Other branches will be made in the future for any animations / art
 
 Dont forget to click commit changes the work will show in whichever BRANCH you decide to put it in
 
-** Your name will be next to the work that you have submitted therefore there is no need to havr your name at the end of things **
+** Your name will be next to the work that you have submitted therefore there is no need to have your name at the end of things **
 
 Always test any code or animations before submitting and MAKE SURE that the project is UPDATED with any prior code / animations BEFORE submission
 
