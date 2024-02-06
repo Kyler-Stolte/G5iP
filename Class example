@@ -1,0 +1,11 @@
+SpawnPoint(float x, float y){
+  float x = transform.position.x;
+  float y = transform.position.y;
+}
+
+Class Enemy{
+
+  int health = 0;
+  SpawnPoint():
+}
+  
