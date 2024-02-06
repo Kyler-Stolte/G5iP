@@ -1,7 +1,7 @@
 SpawnPoint(float x, float y){
   float_x = transform.position.x;
   float_y = transform.position.y;
-  Instantiate(Enemy.gameObject, float_x, float_y);
+  Instantiate(joe);
 }
 
 Class Enemy{
