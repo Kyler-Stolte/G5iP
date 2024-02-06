@@ -13,3 +13,5 @@ Always test any code or animations before submitting and MAKE SURE that the proj
 If i personally need to accept a request to change the code i will try to change it so anyone can change / update
 
 If NOT then I (Kyler) will let everyone know of my schedule of that week since I do work and university I may not see this till later at night
+
+ANYTHING UPDATED MUS BE UNDER 100MB
