@@ -1,17 +1,25 @@
-The main will be used primarily for any code/adjustments made to the main program of the game.
+PLEASE FOR THE LOVE OF GOD JUST UPLOAD THE ASSETS FOLDER AND NOTHING AND I MEAN NOTHING ELSE
+--------------------------------------------------------------------------------------------
 
-Other branches will be made in the future for any animations / art
+JUST USE MAIN
+-
 
-Dont forget to click commit changes the work will show in whichever BRANCH you decide to put it in
+STEPS TO UPLOAD
+-
+1) Make sure everything you have made is in the ASSETS FOLDER ** IMPORTANT **
+2) Go to github desktop and commit to main
+3) push origin ** IMPORTANT **
 
-** Your name will be next to the work that you have submitted therefore there is no need to have your name at the end of things **
+Disclaimer: can commit several changes at once just make sure they are present in your changes on the github desktop
 
-Always test any code or animations before submitting and MAKE SURE that the project is UPDATED with any prior code / animations BEFORE submission
+STEPS TO RECIEVE
+-
 
-*** If you havent updated the project your code may interfere with prior code and muddle it up ***
+1) Go on Github on the website not the desktop app
+2) Click on code
+3) Open with Github Desktop
+4) Clone repository (Doesnt metter where it goes just make sure you remember where you cloned it to)
+5) Open unity with the repository youve cloned
 
-If i personally need to accept a request to change the code i will try to change it so anyone can change / update
-
-If NOT then I (Kyler) will let everyone know of my schedule of that week since I do work and university I may not see this till later at night
-
-ANYTHING UPDATED MUS BE UNDER 100MB
+6) Disclaimer (Dont use one drive when cloning)
+7) Disclaimer || (Everything will be empty in scene it is normal you need to just use the prefabs to put it back together this applies to everything) - ** IMPORTANT **
