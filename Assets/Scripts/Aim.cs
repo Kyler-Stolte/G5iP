@@ -8,6 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Aim : MonoBehaviour
 {
 
+    
 
     private void Start()
     {
@@ -29,17 +30,22 @@ public class Aim : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //sends out a ray from the camera to the mouse position
 
-            List<RaycastHit2D> hits = new List<RaycastHit2D>();
+            List<RaycastHit2D> hits = new List<RaycastHit2D>();// make a list containing what the ray contacts with
 
-            if (Physics2D.Raycast(ray.origin, ray.direction, new ContactFilter2D(), hits) > 0)
-            {
-                print("Success");
-                // if(hit.collider.tag == "Enemy")
-                // {
-                //     Destroy(hit.collider.gameObject);
-                // }
+            if (Physics2D.Raycast(ray.origin, ray.direction, new ContactFilter2D(), hits) > 0) //adds ray collisions to the list
+           {
+               
+                for(int i = 0; i < hits.Count; i++)
+                {
+                    RaycastHit2D pit = hits[i];   //makes the value from the hit list into a Ratcast value via pits
+                    if(pit.collider.gameObject.tag == ("Enemy"))
+                    {
+                        Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
+                    }
+                }
+               
             }
         }
 
