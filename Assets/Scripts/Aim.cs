@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class Aim: MonoBehaviour
 {
+    public KeyCode Shoot
    
 
     private void Start()
