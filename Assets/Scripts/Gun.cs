@@ -14,22 +14,7 @@ public class Gun : MonoBehaviour
         transform.up = direction;
     }
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0) == true)
-        {
-            print("Shoot");
-        }
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D trigger)
-    {
-        if(trigger.tag == "Enemy")
-        {
-            Object.Destroy(gameObject);
-        }
-    }
+   
 
 
 }
