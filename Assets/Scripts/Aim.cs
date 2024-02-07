@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class Aim: MonoBehaviour
 {
-    public KeyCode Shoot
    
 
     private void Start()
@@ -20,5 +19,13 @@ public class Aim: MonoBehaviour
         Vector2 position = new Vector2(mousePosition.x, mousePosition.y); //crosshair can track the mouse
         transform.localPosition = position; // crosshair follows mouse
         
+    }
+
+    private void Update()
+    {
+       if(Input.GetMouseButtonDown(0) == true)
+        {
+            print("Shoot");
+        }
     }
 }
