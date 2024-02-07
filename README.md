@@ -1,3 +1,8 @@
+PLEASE FOR THE LOVE OF GOD JUST UPLOAD THE ASSETS FOLDER AND NOTHING AND I MEAN NOTHING ELSE
+--------------------------------------------------------------------------------------------
+
+
+
 The main will be used primarily for any code/adjustments made to the main program of the game.
 
 Other branches will be made in the future for any animations / art
