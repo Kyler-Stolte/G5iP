@@ -66,16 +66,17 @@ public class Aim : MonoBehaviour
                     {
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
                     }
-                    if(pit.collider.gameObject.tag == ("Special"))
+                    else if(pit.collider.gameObject.tag == ("Special"))
                     {
                         lifeCount--;
                         ui_manager.UpdateLife(lifeCount);//if pits contains the special tag it removes a life
                     }
-                    if(hits.Count == 1)//if you click on nothing you will lose a life
-                    {
-                        lifeCount--;
-                        ui_manager.UpdateLife(lifeCount);
-                    }
+                    
+                   // if(hits.Count == 1)//if you click on nothing you will lose a life
+                   // {
+                   //     lifeCount--;
+                   //     ui_manager.UpdateLife(lifeCount);
+                   // }
                    
                 }
                
@@ -103,16 +104,16 @@ public class Aim : MonoBehaviour
                     {
                         Destroy(pits.collider.gameObject);  //if pits contains the Special tag it destroys the Enemy Object
                     }
-                    if(pits.collider.gameObject.tag == ("Enemy"))// if pits contains the enemy tag it removes a life
+                    else if(pits.collider.gameObject.tag == ("Enemy"))// if pits contains the enemy tag it removes a life
                     {
                         lifeCount--;
                         ui_manager.UpdateLife(lifeCount);
                     }
-                    if (hitting.Count == 1) //if you click on nothing you will lose a life
-                    {
-                        lifeCount--;
-                        ui_manager.UpdateLife(lifeCount);
-                    }
+                   // if (hitting.Count == 1) //if you click on nothing you will lose a life
+                   // {
+                   //     lifeCount--;
+                   //     ui_manager.UpdateLife(lifeCount);
+                   // }
 
                 }
             }
