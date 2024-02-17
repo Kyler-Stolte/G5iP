@@ -11,7 +11,7 @@ public class CurveEnemy : MonoBehaviour
     public Transform posD;
 
     [SerializeField]
-    private Transform[] routes;
+    private Transform[] routes; 
 
     private Vector2 enemyPos;
 
@@ -49,7 +49,7 @@ public class CurveEnemy : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() 
     {
         for(float t=0; t<=1; t += 0.05f)
         {
