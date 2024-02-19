@@ -1,9 +1,8 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using UnityEditor.EditorTools;
+
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
+
 
 public class Aim : MonoBehaviour
 {
@@ -19,6 +18,16 @@ public class Aim : MonoBehaviour
 
     private UI_Manager ui_manager;//need to call the UI manager set it to ui_manager
 
+    public GameObject Cam;
+   
+    public float CamSpeed;
+
+    private Vector3 StartPos;
+
+    public Transform AimPos;
+
+    private int OutBounds = 9;
+
     private void Start()
     {
         UnityEngine.Cursor.visible = false; // makes mouse cursor invisible. For some reason you need to click for it to work
@@ -27,8 +36,11 @@ public class Aim : MonoBehaviour
         currentSpecialAmmo = specialAmmo;
         currentLife = lifeCount;
 
+        StartPos = AimPos.position;
 
         ui_manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();//needs to find the canvas object in the UI component
+
+
 
     }
 
@@ -36,13 +48,17 @@ public class Aim : MonoBehaviour
 
     private void Update()
     {
-
+        
         Vector2 mousePosition = Input.mousePosition; //provides a value for the mouse position in pixels
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition); //translates mouse pixel position into co-ordinates relative to the scene
         Vector2 position = new Vector2(mousePosition.x, mousePosition.y); //crosshair can track the mouse
         transform.localPosition = position; // crosshair follows mouse
 
-        if(lifeCount == 0)
+        if (transform.localPosition.x >= OutBounds || transform.localPosition.x <= -OutBounds)
+        {
+            Cam.transform.position = new Vector3(transform.position.x, 0, -10) * CamSpeed;
+        }
+        if (lifeCount == 0)
         {
             this.gameObject.SetActive(false);
         }
@@ -122,6 +138,10 @@ public class Aim : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+        
+        
+
+
     }
 }
 
