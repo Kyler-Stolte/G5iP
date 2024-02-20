@@ -15,6 +15,7 @@ public class Aim : MonoBehaviour
 
     private int lifeCount = 3;
     private int currentLife;
+    
 
     private UI_Manager ui_manager;//need to call the UI manager set it to ui_manager
 
@@ -81,6 +82,8 @@ public class Aim : MonoBehaviour
                     if (pit.collider.gameObject.tag == ("Enemy"))
                     {
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
+                        ui_manager.currentTime += 2f;
+                        ui_manager.UpdateTime(ui_manager.currentTime);
                     }
                     else if(pit.collider.gameObject.tag == ("Special"))
                     {
@@ -119,6 +122,8 @@ public class Aim : MonoBehaviour
                     if (pits.collider.gameObject.tag == ("Special"))
                     {
                         Destroy(pits.collider.gameObject);  //if pits contains the Special tag it destroys the Enemy Object
+                        ui_manager.currentTime += 5f;
+                        ui_manager.UpdateTime(ui_manager.currentTime);
                     }
                     else if(pits.collider.gameObject.tag == ("Enemy"))// if pits contains the enemy tag it removes a life
                     {

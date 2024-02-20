@@ -13,7 +13,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private Text _lifeText;//lives
 
-    float currentTime = 60f; //starting time
+   public float currentTime = 60f; //starting time
     [SerializeField]
     private Text _timeText;//time
 
@@ -36,7 +36,7 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateTime(float secondsDisplay)
     {
-        float seconds = Mathf.FloorToInt(secondsDisplay % 60); //places time in the correct format
+        float seconds = Mathf.FloorToInt(secondsDisplay % 999); //places time in the correct format
         _timeText.text = "Time:" + seconds;
     }
     void Update()
@@ -55,8 +55,9 @@ public class UI_Manager : MonoBehaviour
         {
             Time.timeScale = 0;
             gameOver.gameObject.SetActive(true);
+           
+            
         }
     }
 
-   
 }
