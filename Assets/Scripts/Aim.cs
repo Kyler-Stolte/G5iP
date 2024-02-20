@@ -138,10 +138,8 @@ public class Aim : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-        
-        
-
-
     }
+
+  
 }
 
