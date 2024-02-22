@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,14 @@ public class UI_Manager : MonoBehaviour
 
     [SerializeField]
     GameObject gameOver; //game over screen
+
+    public GameObject Background;
+    public GameObject Foreground;
+    public GameObject CloseButton;
+
+    private bool menuOpen;
+    
+
     public void UpdateAmmo (int count)//updates the ammo counter takes in the int amount of the ammo
     {
         _ammoText.text = "Ammo:" + count;//updates the count of the ammo
@@ -51,13 +60,32 @@ public class UI_Manager : MonoBehaviour
         }
         UpdateTime(currentTime);
 
-        if(currentTime == 0)//if time reaches 0 then game over
+        if (currentTime == 0)//if time reaches 0 then game over
         {
             Time.timeScale = 0;
             gameOver.gameObject.SetActive(true);
-           
-            
         }
+
+        if (Input.GetKeyDown(KeyCode.Q) && menuOpen == true)
+        {
+            CloseButton.SetActive(false);
+            Foreground.SetActive(false);
+            Background.SetActive(false);
+
+            menuOpen = false;
+        }
+
+        else if(Input.GetKeyDown(KeyCode.Q) && menuOpen == false)
+        {
+            CloseButton.SetActive(true);
+            Background.SetActive(true);
+            Foreground.SetActive(true);
+
+            menuOpen = true;
+        }
+   
     }
+
+   
 
 }
