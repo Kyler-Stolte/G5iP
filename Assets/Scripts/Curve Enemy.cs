@@ -74,9 +74,8 @@ public class CurveEnemy : MonoBehaviour
         Vector2 p2 = routes[routeNumber].GetChild(2).position;
         Vector2 p3 = routes[routeNumber].GetChild(3).position;
 
-        while (tcount < 1)
+        for (tcount = 0; tcount<1; tcount+=speed)
         {
-            tcount +=  speed;
 
             enemyPos = Mathf.Pow(1 - tcount, 3) * p0 + 3 * Mathf.Pow(1 - tcount, 2) * tcount * p1 +
                 3 * Mathf.Pow(1 - tcount, 1) * Mathf.Pow(tcount, 2) * p2 + Mathf.Pow(tcount, 3) * p3;
@@ -85,7 +84,6 @@ public class CurveEnemy : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-     
 
         tcount = 0f;
         routeToGo += 1;
