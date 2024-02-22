@@ -746,12 +746,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb669377e7050644f91cdb555e938f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy1: {fileID: 1998191987}
-  Enemy2: {fileID: 1223000554}
-  Enemy3: {fileID: 1755053500}
-  SpawnTimer: 0
-  Delay: 0
-  NumSpawns: 0
+  enemies:
+  - {fileID: 1998191987}
+  - {fileID: 1223000554}
+  - {fileID: 1755053500}
+  spawnPoint: {fileID: 1370926060}
+  StartTimeBetweenSpawns: 4
 --- !u!4 &1370926060
 Transform:
   m_ObjectHideFlags: 0
@@ -761,7 +761,7 @@ Transform:
   m_GameObject: {fileID: 1370926058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.69, y: 2.96, z: 0.065903954}
+  m_LocalPosition: {x: -18.05, y: -0.5, z: 0.065903954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
