@@ -85,6 +85,8 @@ public class CurveEnemy : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+     
+
         tcount = 0f;
         routeToGo += 1;
 
