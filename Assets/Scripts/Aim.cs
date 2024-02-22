@@ -1,6 +1,7 @@
 
+using System;
 using System.Collections.Generic;
-
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -27,7 +28,8 @@ public class Aim : MonoBehaviour
 
     public Transform AimPos;
 
-    private int OutBounds = 9;
+
+
 
     private void Start()
     {
@@ -55,10 +57,11 @@ public class Aim : MonoBehaviour
         Vector2 position = new Vector2(mousePosition.x, mousePosition.y); //crosshair can track the mouse
         transform.localPosition = position; // crosshair follows mouse
 
-        if (transform.localPosition.x >= OutBounds || transform.localPosition.x <= -OutBounds)
+        if (Input.mousePosition.x >= Screen.width || Input.mousePosition.x <= Screen.width)
         {
             Cam.transform.position = new Vector3(transform.position.x, 0, -10) * CamSpeed;
         }
+
         if (lifeCount == 0)
         {
             this.gameObject.SetActive(false);
@@ -145,6 +148,7 @@ public class Aim : MonoBehaviour
         }
     }
 
-  
+
 }
+
 

@@ -101,8 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
-  CamSpeed: 0
+  CamSpeed: 0.5
   AimPos: {fileID: 2648074731154924929}
+  OutOfBounds1: {fileID: 0}
+  OutOfBounds2: {fileID: 0}
 --- !u!50 &2002074076307664428
 Rigidbody2D:
   serializedVersion: 4
