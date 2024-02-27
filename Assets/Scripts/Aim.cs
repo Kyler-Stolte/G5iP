@@ -81,9 +81,10 @@ public class Aim : MonoBehaviour
             ui_manager.UpdateCombo(comboCounter);
         }
 
-        if(currentAmmo > 6)
+        if(currentAmmo >= maxAmmo)
         {
             currentAmmo = 6;
+            ui_manager.UpdateAmmo(currentAmmo);
         }
 
 
@@ -119,6 +120,7 @@ public class Aim : MonoBehaviour
                     {
                         comboCounter = 0;
                         ui_manager.UpdateCombo(comboCounter);
+                        
                     }
 
                   //  else if(pit.collider.gameObject.tag == ("ammoCrate"))
@@ -154,6 +156,8 @@ public class Aim : MonoBehaviour
                         Destroy(pits.collider.gameObject);  //if pits contains the Special tag it destroys the Enemy Object
                         ui_manager.currentTime += 5f;
                         ui_manager.UpdateTime(ui_manager.currentTime);
+                        comboCounter++;
+                        ui_manager.UpdateCombo(comboCounter);
                     }
                     else if(pits.collider.gameObject.tag == ("Enemy"))// if pits contains the enemy tag it removes a life
                     {
