@@ -209,7 +209,7 @@ MonoBehaviour:
   routes:
   - {fileID: 5780237083197069215}
   - {fileID: 5601298864218836442}
-  speed: 0.002
+  speed: 0.001
 --- !u!1 &2503045225970166161
 GameObject:
   m_ObjectHideFlags: 0

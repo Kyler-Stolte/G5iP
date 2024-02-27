@@ -78,6 +78,12 @@ public class Aim : MonoBehaviour
             currentAmmo += 6;
             ui_manager.UpdateAmmo(currentAmmo);
             comboCounter = 0;
+            ui_manager.UpdateCombo(comboCounter);
+        }
+
+        if(currentAmmo > 6)
+        {
+            currentAmmo = 6;
         }
 
 
@@ -101,6 +107,7 @@ public class Aim : MonoBehaviour
                         ui_manager.currentTime += 2f;
                         ui_manager.UpdateTime(ui_manager.currentTime);
                         comboCounter++;
+                        ui_manager.UpdateCombo(comboCounter);
                     }
                     else if(pit.collider.gameObject.tag == ("Special"))
                     {
@@ -111,6 +118,7 @@ public class Aim : MonoBehaviour
                     else if(hits.Count == 1)
                     {
                         comboCounter = 0;
+                        ui_manager.UpdateCombo(comboCounter);
                     }
 
                   //  else if(pit.collider.gameObject.tag == ("ammoCrate"))

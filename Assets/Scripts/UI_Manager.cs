@@ -21,6 +21,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     GameObject gameOver; //game over screen
 
+    [SerializeField]
+    private Text _comboCounter;
+
     public GameObject Background;
     public GameObject Foreground;
     public GameObject CloseButton;
@@ -53,6 +56,12 @@ public class UI_Manager : MonoBehaviour
         float seconds = Mathf.FloorToInt(secondsDisplay % 999); //places time in the correct format
         _timeText.text = "Time:" + seconds;
     }
+
+    public void UpdateCombo(int combo)
+    {
+        _comboCounter.text = "Combo:" + combo;
+    }
+
     void Update()
     {
         if (currentTime > 0)
