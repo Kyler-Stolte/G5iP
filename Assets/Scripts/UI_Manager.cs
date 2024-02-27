@@ -28,6 +28,11 @@ public class UI_Manager : MonoBehaviour
     private bool menuOpen;
     
 
+    private void Start()
+    {
+        menuOpen = true;
+    }
+
     public void UpdateAmmo (int count)//updates the ammo counter takes in the int amount of the ammo
     {
         _ammoText.text = "Ammo:" + count;//updates the count of the ammo

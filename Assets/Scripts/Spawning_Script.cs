@@ -35,6 +35,8 @@ public class Spawning_Script : MonoBehaviour
         {
             TimeBetwSpawns -= Time.deltaTime;
         }
+
+       
     }
 }
 

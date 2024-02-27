@@ -1,14 +1,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 public class Aim : MonoBehaviour
 {
 
-    private int maxAmmo = 10;//maximum ammo allows
+    private int maxAmmo = 6;//maximum ammo allows
     private int currentAmmo;// current ammo of the weapon
 
     private int specialAmmo = 5;
@@ -28,6 +30,8 @@ public class Aim : MonoBehaviour
 
     public Transform AimPos;
 
+    private int comboCounter;
+
 
 
 
@@ -42,6 +46,8 @@ public class Aim : MonoBehaviour
         StartPos = AimPos.position;
 
         ui_manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();//needs to find the canvas object in the UI component
+
+        comboCounter = 0;
 
 
 
@@ -67,6 +73,13 @@ public class Aim : MonoBehaviour
             this.gameObject.SetActive(false);
         }
 
+        if(comboCounter == 6)
+        {
+            currentAmmo += 6;
+            ui_manager.UpdateAmmo(currentAmmo);
+            comboCounter = 0;
+        }
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -87,19 +100,25 @@ public class Aim : MonoBehaviour
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
                         ui_manager.currentTime += 2f;
                         ui_manager.UpdateTime(ui_manager.currentTime);
+                        comboCounter++;
                     }
                     else if(pit.collider.gameObject.tag == ("Special"))
                     {
                         lifeCount--;
                         ui_manager.UpdateLife(lifeCount);//if pits contains the special tag it removes a life
                     }
-                    
-                   // if(hits.Count == 1)//if you click on nothing you will lose a life
-                   // {
-                   //     lifeCount--;
-                   //     ui_manager.UpdateLife(lifeCount);
-                   // }
-                   
+
+                    else if(hits.Count == 1)
+                    {
+                        comboCounter = 0;
+                    }
+
+                  //  else if(pit.collider.gameObject.tag == ("ammoCrate"))
+                  //  {
+                  //      Destroy(pit.collider.gameObject);
+                  //      currentAmmo += 2;
+                  //      ui_manager.UpdateAmmo(currentAmmo);
+                  //  }
                 }
                
             }
@@ -133,11 +152,13 @@ public class Aim : MonoBehaviour
                         lifeCount--;
                         ui_manager.UpdateLife(lifeCount);
                     }
-                   // if (hitting.Count == 1) //if you click on nothing you will lose a life
-                   // {
-                   //     lifeCount--;
-                   //     ui_manager.UpdateLife(lifeCount);
-                   // }
+
+                    else if (pits.collider.gameObject.tag == ("ammoCrate"))
+                    {
+                        Destroy(pits.collider.gameObject);
+                        currentAmmo += 2;
+                        ui_manager.UpdateAmmo(currentAmmo);
+                    }
 
                 }
             }
