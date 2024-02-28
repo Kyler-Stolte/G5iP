@@ -28,6 +28,8 @@ public class UI_Manager : MonoBehaviour
     public GameObject Foreground;
     public GameObject CloseButton;
 
+    public GameObject Spawner;
+
     private bool menuOpen;
     
 
