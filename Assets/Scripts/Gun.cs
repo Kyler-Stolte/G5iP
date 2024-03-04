@@ -18,11 +18,16 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0) == true)
         {
             animator.SetBool("IsClicked", true);
+            animator.SetBool("IsNotClicked", false);
         }
-        else
+        else if (Input.GetMouseButtonDown(0) != true)
         {
+            animator.SetBool("IsClicked", false);
             animator.SetBool("IsNotClicked", true);
         }
+
+
+       
     }
 }
 

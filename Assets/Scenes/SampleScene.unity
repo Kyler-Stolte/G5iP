@@ -233,6 +233,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2277753940664096399, guid: 5a263695cdb18884aaeb679c75adb331, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82741be1dc2886a4dad23cf91583cc25, type: 3}
     - target: {fileID: 2722027437044521851, guid: 5a263695cdb18884aaeb679c75adb331, type: 3}
       propertyPath: cam
       value: 
@@ -281,6 +285,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5963618394351381467, guid: 5a263695cdb18884aaeb679c75adb331, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82741be1dc2886a4dad23cf91583cc25, type: 3}
     - target: {fileID: 6214700358368377463, guid: 5a263695cdb18884aaeb679c75adb331, type: 3}
       propertyPath: cam
       value: 
@@ -289,6 +297,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1306806580}
+    - target: {fileID: 6876704382613135422, guid: 5a263695cdb18884aaeb679c75adb331, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82741be1dc2886a4dad23cf91583cc25, type: 3}
     - target: {fileID: 7886734856099805009, guid: 5a263695cdb18884aaeb679c75adb331, type: 3}
       propertyPath: m_Name
       value: Backgrounds
