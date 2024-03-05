@@ -190,21 +190,21 @@ PrefabInstance:
     - target: {fileID: 5740901317172499915, guid: 313100594f390bf40aeea0d6bf3ad82b, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 24378912}
+      objectReference: {fileID: 24378907}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2494607039105442993, guid: 313100594f390bf40aeea0d6bf3ad82b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 24378912}
+      addedObject: {fileID: 24378907}
   m_SourcePrefab: {fileID: 100100000, guid: 313100594f390bf40aeea0d6bf3ad82b, type: 3}
 --- !u!1 &24378906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2494607039105442993, guid: 313100594f390bf40aeea0d6bf3ad82b, type: 3}
   m_PrefabInstance: {fileID: 24378905}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &24378912
+--- !u!95 &24378907
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ Animator:
   m_GameObject: {fileID: 24378906}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee115326547af1d40a2300cbddb4d49c, type: 2}
+  m_Controller: {fileID: 9100000, guid: cbe896b8bbb6d4d4aa60515ead997b9c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -610,6 +610,10 @@ PrefabInstance:
     - target: {fileID: 1392806799874483195, guid: 14ef065457053c146905d738b8897e3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543036845328733390, guid: 14ef065457053c146905d738b8897e3c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4754018054878968015, guid: 14ef065457053c146905d738b8897e3c, type: 3}
       propertyPath: m_IsActive
