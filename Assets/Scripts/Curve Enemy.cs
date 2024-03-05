@@ -23,10 +23,11 @@ public class CurveEnemy : MonoBehaviour
 
     public float speed;
    
-
     private float tcount;
 
     private Vector2 gizmosPosition;
+
+    
 
     private void Start()
     {
@@ -46,6 +47,24 @@ public class CurveEnemy : MonoBehaviour
         }
 
 
+        if (Vector2.Distance(transform.position, posD.position) > Vector2.Distance(transform.position, posA.position))
+        {
+            transform.localScale += new Vector3(0.001f, 0.001f, 0f);
+        }
+
+        if (Vector2.Distance(transform.position, posD.position) < Vector2.Distance(transform.position, posA.position))
+        {
+            transform.localScale += new Vector3(-0.001f, -0.001f, 0f);
+        }
+
+
+
+
+
+        // if(transform.localScale.x > 0.8f && transform.localScale.y > 0.8f)
+        //  {
+        //      transform.localScale -= new Vector3(0.001f, 0.001f, 0f);
+        //  } 
 
     }
 
@@ -80,6 +99,8 @@ public class CurveEnemy : MonoBehaviour
             enemyPos = Mathf.Pow(1 - tcount, 3) * p0 + 3 * Mathf.Pow(1 - tcount, 2) * tcount * p1 +
                 3 * Mathf.Pow(1 - tcount, 1) * Mathf.Pow(tcount, 2) * p2 + Mathf.Pow(tcount, 3) * p3;
 
+           
+
             transform.position = enemyPos;
             yield return new WaitForEndOfFrame();
         }
@@ -92,6 +113,8 @@ public class CurveEnemy : MonoBehaviour
         {
             routeToGo = 0;
         }
+
+       
 
         coroutineAllowed = true;
 
