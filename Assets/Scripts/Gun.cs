@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UIElements;
 
 public class Gun : MonoBehaviour
 {
@@ -24,6 +24,12 @@ public class Gun : MonoBehaviour
         {
             animator.SetBool("IsClicked", false);
             animator.SetBool("IsNotClicked", true);
+        }
+
+
+        if (transform.rotation.z > 45 || transform.rotation.z > 75)
+        {
+            animator.SetFloat("posRot", 45);
         }
 
 
