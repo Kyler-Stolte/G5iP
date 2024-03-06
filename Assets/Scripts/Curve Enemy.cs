@@ -27,7 +27,7 @@ public class CurveEnemy : MonoBehaviour
 
     private Vector2 gizmosPosition;
 
-    
+    public GameObject parent;
 
     private void Start()
     {
@@ -120,8 +120,14 @@ public class CurveEnemy : MonoBehaviour
 
     }
 
-    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "DespawnWall")
+        {
+            Destroy(parent);
+        }
+    }
 
-   
+
 
 }

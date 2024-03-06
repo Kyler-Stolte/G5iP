@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody rb;
 
+    public GameObject parent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,5 +60,13 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawLine(posA.position, posB.position);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "DespawnWall")
+        {
+            Destroy(parent);
+        }
     }
 }

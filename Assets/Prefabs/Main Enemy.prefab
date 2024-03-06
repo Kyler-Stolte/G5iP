@@ -270,3 +270,4 @@ MonoBehaviour:
   posA: {fileID: 8605963257344598174}
   posB: {fileID: 6789699842636944641}
   speed: 2.5
+  parent: {fileID: 4600774863993074925}
