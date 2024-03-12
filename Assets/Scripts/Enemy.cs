@@ -19,12 +19,17 @@ public class Enemy : MonoBehaviour
 
     public GameObject parent;
 
+    public float lifetime;
+
+    private float LifeEnd;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
         TargetPos = posB.position;
+        lifetime = LifeEnd;
     }
 
     // Update is called once per frame
@@ -50,8 +55,6 @@ public class Enemy : MonoBehaviour
         {
             transform.localScale += new Vector3(-0.001f, -0.001f, 0f);
         }
-
-
 
 
     }
