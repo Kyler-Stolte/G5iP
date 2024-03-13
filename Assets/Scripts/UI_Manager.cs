@@ -1,6 +1,5 @@
 
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,9 @@ public class UI_Manager : MonoBehaviour
 {
     [SerializeField]
     private Text _ammoText;//need to set the text for the ammo
+
+    [SerializeField]
+    private Text _special;//special ammo
 
     [SerializeField]
     private Text _lifeText;//lives
@@ -22,18 +24,18 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private Text _comboCounter;
 
-    public GameObject ObjectiveMenu;
+    public GameObject Background;
+    public GameObject Foreground;
+    public GameObject CloseButton;
+
     public GameObject Spawner;
-    public GameObject pausePanel;
 
     private bool menuOpen;
-    private bool pauseOpen;
     
 
     private void Start()
     {
-        menuOpen = false;
-        pauseOpen = false;
+        menuOpen = true;
     }
 
     public void UpdateAmmo (int count)//updates the ammo counter takes in the int amount of the ammo
@@ -41,6 +43,10 @@ public class UI_Manager : MonoBehaviour
         _ammoText.text = "Ammo:" + count;//updates the count of the ammo
     }
 
+    public void UpdateSpecial(int counts)
+    {
+        _special.text = "Special Ammo:" + counts;
+    }
 
     public void UpdateLife(int lives)
     {
@@ -76,38 +82,22 @@ public class UI_Manager : MonoBehaviour
             gameOver.gameObject.SetActive(true);
         }
 
-        if(Input.GetKeyDown(KeyCode.P) && pauseOpen == false)
+        if (Input.GetKeyDown(KeyCode.Q) && menuOpen == true)
         {
-            pausePanel.SetActive(true);
-            pauseOpen = true;
-        }
+            CloseButton.SetActive(false);
+            Foreground.SetActive(false);
+            Background.SetActive(false);
 
-        else if(Input.GetKeyDown(KeyCode.P) && pauseOpen == true)
-        {
-            pausePanel.SetActive(false);
-            pauseOpen = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q) && menuOpen == false)
-        {
-            ObjectiveMenu.SetActive(true);
-            menuOpen = true;
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Q) && menuOpen == true)
-        {
-            ObjectiveMenu.SetActive(false);
             menuOpen = false;
         }
 
-        if (pauseOpen)
+        else if(Input.GetKeyDown(KeyCode.Q) && menuOpen == false)
         {
-            Time.timeScale = 0;
-        }
+            CloseButton.SetActive(true);
+            Background.SetActive(true);
+            Foreground.SetActive(true);
 
-        else
-        {
-            Time.timeScale = 1;
+            menuOpen = true;
         }
    
     }
