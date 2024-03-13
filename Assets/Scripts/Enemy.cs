@@ -19,9 +19,11 @@ public class Enemy : MonoBehaviour
 
     public GameObject parent;
 
-    public float lifetime;
+    private Spawning_Script spawner;
 
-    private float LifeEnd;
+   
+
+  
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +31,18 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         TargetPos = posB.position;
-        lifetime = LifeEnd;
+
+        spawner = GetComponent<Spawning_Script>();
+
+        StartCoroutine(Despawn());
+
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+
         if (Vector2.Distance(transform.position, posA.position) < .1f)
         {
             TargetPos = posB.position;
@@ -71,5 +79,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(parent);
         }
+    }
+
+    IEnumerator Despawn()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(parent.gameObject);
     }
 }

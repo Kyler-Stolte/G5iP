@@ -5,12 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Spawning_Script : MonoBehaviour 
+public class Spawning_Script : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] public GameObject[] enemies;
 
-    [SerializeField] public List<GameObject> currentEnemy;
+
+
 
     public Transform spawnPoint;
 
@@ -28,48 +29,55 @@ public class Spawning_Script : MonoBehaviour
     private bool EnemyActive;
 
 
-    
+
     void Start()
     {
         TimeBetwSpawns = StartTimeBetweenSpawns;
         timer = ResetTime;
         EnemyActive = true;
-    
+
+
     }
     // Update is called once per frame
 
     void Update()
     {
         timer += Time.deltaTime;
-  
 
-        if (TimeBetwSpawns <=0)
+
+
+        if (TimeBetwSpawns <= 0)
         {
             Rand = Random.Range(0, enemies.Length);
             randPosition = Random.Range(0, randPosition);
 
             if (timer >= 10 && timer < 20)
             {
-                Instantiate(enemies[0], transform.position, Quaternion.identity);
-                currentEnemy.Add(enemies[0]);
-                TimeBetwSpawns = StartTimeBetweenSpawns;
-                
+                SpawnEnemy();
+
                 if (timer >= 40 && EnemyActive == true)
                 {
                     this.gameObject.SetActive(false);
                     timer = ResetTime;
                 }
-            } else if (timer >= 20)
+
+              
+            }
+
+            else if (timer >= 20)
             {
-                Instantiate(enemies[1], transform.position, Quaternion.identity);
-                currentEnemy.Add(enemies[1]);
-                TimeBetwSpawns = StartTimeBetweenSpawns;
+               // Instantiate(enemies[1], transform.position, Quaternion.identity);
+               // currentCurveEnemy.Add(enemies[1]);
+               // TimeBetwSpawns = StartTimeBetweenSpawns;
+
+                SpawnCurvedEnemy();
+
                 //if (timer >= 40 && EnemyActive == true)
                 //{
                 //    this.gameObject.SetActive(false);
                 //    timer = ResetTime;
-                    
-               // }
+
+                // }
             }
 
         }
@@ -77,9 +85,24 @@ public class Spawning_Script : MonoBehaviour
         {
             TimeBetwSpawns -= Time.deltaTime;
         }
-  
-       
+
+
     }
+
+    private void SpawnEnemy()
+    {
+        GameObject enemyClone = Instantiate(enemies[0], transform.position, Quaternion.identity);
+        enemyClone.SetActive(true);
+        TimeBetwSpawns = StartTimeBetweenSpawns;
+    }
+
+    private void SpawnCurvedEnemy()
+    {
+        GameObject curveEnemyClone = Instantiate(enemies[1], transform.position, Quaternion.identity);
+        curveEnemyClone.SetActive(true);
+        TimeBetwSpawns = StartTimeBetweenSpawns;
+    }
+
 }
 
 

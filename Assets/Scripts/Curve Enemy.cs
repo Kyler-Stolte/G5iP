@@ -46,6 +46,8 @@ public class CurveEnemy : MonoBehaviour
             StartCoroutine(GoByTheRoute(routeToGo));
         }
 
+        StartCoroutine(Despawn());
+
 
         if (Vector2.Distance(transform.position, posD.position) > Vector2.Distance(transform.position, posA.position))
         {
@@ -118,6 +120,12 @@ public class CurveEnemy : MonoBehaviour
 
         coroutineAllowed = true;
 
+    }
+
+    IEnumerator Despawn()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(parent.gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)
