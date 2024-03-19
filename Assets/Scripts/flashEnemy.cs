@@ -13,6 +13,17 @@ public class flashEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine(Flash());
+
     }
+
+    IEnumerator Flash()
+    {
+        yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
+        new WaitForSeconds(1f);
+        this.gameObject.SetActive(true);
+       
+    }
+
 }
