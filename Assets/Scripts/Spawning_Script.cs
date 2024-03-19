@@ -13,7 +13,7 @@ public class Spawning_Script : MonoBehaviour
 
 
 
-    public Transform spawnPoint;
+    public Transform[] spawnPoint;
 
     private int Rand;
     private int randPosition;
@@ -66,18 +66,7 @@ public class Spawning_Script : MonoBehaviour
 
             else if (timer >= 20)
             {
-               // Instantiate(enemies[1], transform.position, Quaternion.identity);
-               // currentCurveEnemy.Add(enemies[1]);
-               // TimeBetwSpawns = StartTimeBetweenSpawns;
-
                 SpawnCurvedEnemy();
-
-                //if (timer >= 40 && EnemyActive == true)
-                //{
-                //    this.gameObject.SetActive(false);
-                //    timer = ResetTime;
-
-                // }
             }
 
         }
@@ -100,6 +89,13 @@ public class Spawning_Script : MonoBehaviour
     {
         GameObject curveEnemyClone = Instantiate(enemies[1], transform.position, Quaternion.identity);
         curveEnemyClone.SetActive(true);
+        TimeBetwSpawns = StartTimeBetweenSpawns;
+    }
+
+    private void SpawnFlashEnemy()
+    {
+        GameObject flashEnemyClone = Instantiate(enemies[2], transform.position, Quaternion.identity);
+        flashEnemyClone.SetActive(true);
         TimeBetwSpawns = StartTimeBetweenSpawns;
     }
 
