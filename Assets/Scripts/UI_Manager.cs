@@ -9,9 +9,6 @@ public class UI_Manager : MonoBehaviour
     private Text _ammoText;//need to set the text for the ammo
 
     [SerializeField]
-    private Text _special;//special ammo
-
-    [SerializeField]
     private Text _lifeText;//lives
 
    public float currentTime = 60f; //starting time
@@ -25,7 +22,6 @@ public class UI_Manager : MonoBehaviour
     private Text _comboCounter;
 
     public GameObject Background;
-    public GameObject Foreground;
     public GameObject CloseButton;
 
     public GameObject Spawner;
@@ -43,10 +39,6 @@ public class UI_Manager : MonoBehaviour
         _ammoText.text = "Ammo:" + count;//updates the count of the ammo
     }
 
-    public void UpdateSpecial(int counts)
-    {
-        _special.text = "Special Ammo:" + counts;
-    }
 
     public void UpdateLife(int lives)
     {
@@ -85,7 +77,6 @@ public class UI_Manager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && menuOpen == true)
         {
             CloseButton.SetActive(false);
-            Foreground.SetActive(false);
             Background.SetActive(false);
 
             menuOpen = false;
@@ -95,7 +86,6 @@ public class UI_Manager : MonoBehaviour
         {
             CloseButton.SetActive(true);
             Background.SetActive(true);
-            Foreground.SetActive(true);
 
             menuOpen = true;
         }

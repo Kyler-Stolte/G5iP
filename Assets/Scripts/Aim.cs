@@ -137,48 +137,7 @@ public class Aim : MonoBehaviour
             this.gameObject.SetActive(false);
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //sends out a ray from the camera to the mouse position
-
-            List<RaycastHit2D> hitting = new List<RaycastHit2D>();// make a list containing what the ray contacts with
-
-            if (Physics2D.Raycast(ray.origin, ray.direction, new ContactFilter2D(), hitting) > 0) //adds ray collisions to the list
-            {
-                specialAmmo--;
-                ui_manager.UpdateSpecial(specialAmmo);
-
-                for (int i = 0; i < hitting.Count; i++)
-                {
-                    RaycastHit2D pits = hitting[i];   //makes the value from the hit list into a Raycast value via pits
-                    if (pits.collider.gameObject.tag == ("Special"))
-                    {
-                        Destroy(pits.collider.gameObject);  //if pits contains the Special tag it destroys the Enemy Object
-                        ui_manager.currentTime += 5f;
-                        ui_manager.UpdateTime(ui_manager.currentTime);
-                        comboCounter++;
-                        ui_manager.UpdateCombo(comboCounter);
-                    }
-                    else if(pits.collider.gameObject.tag == ("Enemy"))// if pits contains the enemy tag it removes a life
-                    {
-                        lifeCount--;
-                        ui_manager.UpdateLife(lifeCount);
-                    }
-
-                    else if (pits.collider.gameObject.tag == ("ammoCrate"))
-                    {
-                        Destroy(pits.collider.gameObject);
-                        currentAmmo += 2;
-                        ui_manager.UpdateAmmo(currentAmmo);
-                    }
-
-                }
-            }
-
-        }else if(currentSpecialAmmo == 0)
-        {
-            this.gameObject.SetActive(false);
-        }
+        
     }
 
 
