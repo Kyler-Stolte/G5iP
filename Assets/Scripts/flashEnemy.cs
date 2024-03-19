@@ -16,6 +16,7 @@ public class flashEnemy : MonoBehaviour
         flashOutTimer = 2f;
         flashInTimer = 1f;
         active = true;
+        StartCoroutine(Despawn());
     }
     void Update()
     {
@@ -58,8 +59,12 @@ public class flashEnemy : MonoBehaviour
  
     }
 
-   
 
-  
+    IEnumerator Despawn()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(this.gameObject);
+    }
+
 
 }
