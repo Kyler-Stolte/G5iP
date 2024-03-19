@@ -10,6 +10,12 @@ public class CurveEnemy : MonoBehaviour
     public Transform posC;
     public Transform posD;
 
+    public Transform posA_1;
+    public Transform posB_1;
+    public Transform posC_1;
+    public Transform posD_1;
+
+
     [SerializeField]
     private Transform[] routes; 
 
@@ -48,26 +54,6 @@ public class CurveEnemy : MonoBehaviour
 
         StartCoroutine(Despawn());
 
-
-        if (Vector2.Distance(transform.position, posD.position) > Vector2.Distance(transform.position, posA.position))
-        {
-            transform.localScale += new Vector3(0.001f, 0.001f, 0f);
-        }
-
-        if (Vector2.Distance(transform.position, posD.position) < Vector2.Distance(transform.position, posA.position))
-        {
-            transform.localScale += new Vector3(-0.001f, -0.001f, 0f);
-        }
-
-
-
-
-
-        // if(transform.localScale.x > 0.8f && transform.localScale.y > 0.8f)
-        //  {
-        //      transform.localScale -= new Vector3(0.001f, 0.001f, 0f);
-        //  } 
-
     }
 
     private void OnDrawGizmos() 
@@ -80,6 +66,16 @@ public class CurveEnemy : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawSphere(gizmosPosition, 0.25f);
         }
+
+        for (float t = 0; t <= 1; t += 0.05f)
+        {
+            gizmosPosition = Mathf.Pow(1 - t, 3) * posA_1.position + 3 * Mathf.Pow(1 - t, 2) * t * posB_1.position +
+                3 * Mathf.Pow(1 - t, 1) * Mathf.Pow(t, 2) * posC_1.position + Mathf.Pow(t, 3) * posD_1.position;
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(gizmosPosition, 0.25f);
+        }
+
 
         Gizmos.DrawLine(new Vector2(posA.position.x, posA.position.y), new Vector2(posB.position.x, posB.position.y));
         Gizmos.DrawLine(new Vector2(posC.position.x, posC.position.y), new Vector2(posD.position.x, posD.position.y));
@@ -126,6 +122,7 @@ public class CurveEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         Destroy(parent.gameObject);
+
     }
 
     void OnTriggerEnter2D(Collider2D other)

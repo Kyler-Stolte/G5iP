@@ -25,13 +25,16 @@ public class UI_Manager : MonoBehaviour
     public GameObject CloseButton;
 
     public GameObject Spawner;
+    public GameObject pauseMenu;
 
     private bool menuOpen;
+    private bool pauseOpen;
     
 
     private void Start()
     {
         menuOpen = true;
+        pauseOpen = false;
     }
 
     public void UpdateAmmo (int count)//updates the ammo counter takes in the int amount of the ammo
@@ -89,7 +92,19 @@ public class UI_Manager : MonoBehaviour
 
             menuOpen = true;
         }
-   
+
+        if(Input.GetKeyDown(KeyCode.P) && pauseOpen == true) 
+        {
+            pauseMenu.SetActive(false);
+            pauseOpen = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) && pauseOpen == false)
+        {
+            pauseMenu.SetActive(true);
+            pauseOpen = true;
+        }
+
     }
 
    
