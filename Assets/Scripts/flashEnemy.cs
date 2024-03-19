@@ -4,15 +4,62 @@ using UnityEngine;
 
 public class flashEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    private float flashOutTimer;
+    private float flashInTimer;
+    private bool active;
+
+    public GameObject child;
+
+    private void Start()
+    {
+        flashOutTimer = 2f;
+        flashInTimer = 1f;
+        active = true;
+    }
     void Update()
     {
-        
+       if(active == true)
+        {
+            if(flashOutTimer <= 2f)
+            {
+                flashOutTimer -= Time.deltaTime;
+            }
+
+            if(flashOutTimer <= 0)
+            {
+                child.gameObject.SetActive(false);
+                flashInTimer = 1f;
+                active = false;
+            }
+
+        } 
+       
+
+        if(active == false)
+        {
+            
+
+            if(flashInTimer <= 1)
+            {
+                flashInTimer -= Time.deltaTime;
+            }
+
+
+            if(flashInTimer <= 0)
+            {
+                child.gameObject.SetActive(true);
+                flashOutTimer = 2f;
+                active = true;
+
+            }
+        }
+
+ 
     }
+
+   
+
+  
+
 }
