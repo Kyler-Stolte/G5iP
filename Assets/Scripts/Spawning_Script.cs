@@ -37,7 +37,7 @@ public class Spawning_Script : MonoBehaviour
     {
         TimeBetwSpawns = StartTimeBetweenSpawns;
         timer = ResetTime;
-        EnemyActive = true;
+     
        // RandEnemy = Random.Range(0, enemies.Length);
        // randPosition = Random.Range(0, spawnPoint.Length);
 
