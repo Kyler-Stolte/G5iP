@@ -54,15 +54,15 @@ public class Enemy : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, TargetPos, speed * Time.deltaTime);
 
-        if(Vector2.Distance(transform.position,posB.position) > Vector2.Distance(transform.position, posA.position))
-        {
-            transform.localScale += new Vector3(0.001f, 0.001f, 0f);
-        }
+       // if(Vector2.Distance(transform.position,posB.position) > Vector2.Distance(transform.position, posA.position))
+       // {
+       //     transform.localScale += new Vector3(0.001f, 0.001f, 0f);
+       // }
 
-        if (Vector2.Distance(transform.position, posB.position) < Vector2.Distance(transform.position, posA.position))
-        {
-            transform.localScale += new Vector3(-0.001f, -0.001f, 0f);
-        }
+       // if (Vector2.Distance(transform.position, posB.position) < Vector2.Distance(transform.position, posA.position))
+       // {
+       //     transform.localScale += new Vector3(-0.001f, -0.001f, 0f);
+       // }
 
 
     }

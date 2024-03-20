@@ -106,8 +106,6 @@ public class Aim : MonoBehaviour
                     if (pit.collider.gameObject.tag == ("Enemy"))
                     {
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
-                        ui_manager.currentTime += 2f;
-                        ui_manager.UpdateTime(ui_manager.currentTime);
                         comboCounter++;
                         ui_manager.UpdateCombo(comboCounter);
                     }
