@@ -21,8 +21,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private Text _comboCounter;
 
-    public GameObject Background;
-    public GameObject CloseButton;
+    public GameObject objectiveMenu;
 
     public GameObject Spawner;
     public GameObject pauseMenu;
@@ -33,7 +32,7 @@ public class UI_Manager : MonoBehaviour
 
     private void Start()
     {
-        menuOpen = true;
+        menuOpen = false;
         pauseOpen = false;
     }
 
@@ -79,16 +78,14 @@ public class UI_Manager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q) && menuOpen == true)
         {
-            CloseButton.SetActive(false);
-            Background.SetActive(false);
+            objectiveMenu.SetActive(false);
 
             menuOpen = false;
         }
 
         else if(Input.GetKeyDown(KeyCode.Q) && menuOpen == false)
         {
-            CloseButton.SetActive(true);
-            Background.SetActive(true);
+           objectiveMenu.SetActive(true);
 
             menuOpen = true;
         }
@@ -96,12 +93,14 @@ public class UI_Manager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P) && pauseOpen == true) 
         {
             pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
             pauseOpen = false;
         }
 
         if (Input.GetKeyDown(KeyCode.P) && pauseOpen == false)
         {
             pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
             pauseOpen = true;
         }
 
