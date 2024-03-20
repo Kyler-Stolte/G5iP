@@ -27,6 +27,7 @@ public class Gun : MonoBehaviour
     {
 
         Vector3 Angle = new Vector3(0, 0, transform.rotation.z);
+        animator.SetFloat("Angle", transform.rotation.eulerAngles.z);
         if (Input.GetMouseButtonDown(0) == true)
         {
             animator.SetBool("IsClicked", true);
@@ -38,16 +39,6 @@ public class Gun : MonoBehaviour
             animator.SetBool("IsClicked", false);
         }
 
-        switch (Angle.z)
-        {
-            case 0:
-                if (Angle.z > 45)
-                {
-                    Console.WriteLine("pog");
-                }
-                break;
-
-        }
 
         
     }
