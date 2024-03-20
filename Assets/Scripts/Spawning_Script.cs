@@ -30,7 +30,6 @@ public class Spawning_Script : MonoBehaviour
 
     private int ResetTime;
 
-    private bool EnemyActive;
 
 
 
