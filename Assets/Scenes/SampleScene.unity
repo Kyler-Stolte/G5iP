@@ -1295,6 +1295,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 111918101211692833, guid: ceeb961d532f51243a5f715d1c1c76d9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d3ea2ac0369e8544f9c0edb14176b075, type: 3}
     - target: {fileID: 1982794248059170278, guid: ceeb961d532f51243a5f715d1c1c76d9, type: 3}
       propertyPath: m_Name
       value: Crosshair
