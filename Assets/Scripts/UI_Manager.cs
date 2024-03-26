@@ -94,10 +94,10 @@ public class UI_Manager : MonoBehaviour
         {
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
-            pauseOpen = false;
+            pauseOpen = false;       
         }
 
-        if (Input.GetKeyDown(KeyCode.P) && pauseOpen == false)
+        else if (Input.GetKeyDown(KeyCode.P) && pauseOpen == false)
         {
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;

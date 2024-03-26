@@ -115,6 +115,31 @@ public class Spawning_Script : MonoBehaviour
         var RandomEnemy = enemies[Random.Range(0, enemies.Length)];
 
        GameObject RandomEnemyClone = Instantiate(RandomEnemy.gameObject, RandomSpawn.transform.position, Quaternion.identity);
+
+        if(RandomSpawn == spawnPoint[0])
+        {
+            RandomEnemyClone.transform.localScale = new Vector3(0.5f, 0.5f, 0);
+            RandomEnemyClone.layer = 2;
+        }
+
+        if (RandomSpawn == spawnPoint[1])
+        {
+            RandomEnemyClone.transform.localScale = new Vector3(0.8f, 0.8f, 0);
+            RandomEnemyClone.layer = 3;
+        }
+
+        if (RandomSpawn == spawnPoint[2])
+        {
+            RandomEnemyClone.transform.localScale = new Vector3(1f, 1f, 0);
+            RandomEnemyClone.layer = 4;
+        }
+
+        if (RandomSpawn == spawnPoint[3])
+        {
+            RandomEnemyClone.transform.localScale = new Vector3(1.2f, 1.2f, 0);
+            RandomEnemyClone.layer = 5;
+        }
+
         RandomEnemyClone.SetActive(true);
         TimeBetwSpawns = StartTimeBetweenSpawns;
     }
