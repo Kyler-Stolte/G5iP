@@ -545,7 +545,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Angle
-    m_EventTreshold: 100
+    m_EventTreshold: 200
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7765026462353307815}
   m_Solo: 0
@@ -583,7 +583,7 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: Angle
     m_Type: 1
-    m_DefaultFloat: -45
+    m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
