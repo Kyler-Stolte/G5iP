@@ -119,19 +119,19 @@ public class Spawning_Script : MonoBehaviour
         if(RandomSpawn == spawnPoint[0])
         {
            // RandomEnemyClone.transform.localScale = new Vector3(0.5f, 0.5f, 0);
-            RandomEnemyClone.layer = 2;
+            RandomEnemyClone.layer = 5;
         }
 
         if (RandomSpawn == spawnPoint[1])
         {
            // RandomEnemyClone.transform.localScale = new Vector3(0.8f, 0.8f, 0);
-            RandomEnemyClone.layer = 3;
+            RandomEnemyClone.layer = 5;
         }
 
         if (RandomSpawn == spawnPoint[2])
         {
            // RandomEnemyClone.transform.localScale = new Vector3(1.1f, 1.1f, 0);
-            RandomEnemyClone.layer = 4;
+            RandomEnemyClone.layer = 5;
         }
 
         if (RandomSpawn == spawnPoint[3])

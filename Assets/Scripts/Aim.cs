@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using Unity.VisualScripting;
@@ -32,6 +33,8 @@ public class Aim : MonoBehaviour
 
     private int comboCounter;
 
+    private Animator enemyAnimator;
+
    
 
 
@@ -47,6 +50,7 @@ public class Aim : MonoBehaviour
         StartPos = AimPos.position;
 
         ui_manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();//needs to find the canvas object in the UI component
+        enemyAnimator = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<Animator>();
 
         comboCounter = 0;
 
@@ -74,7 +78,7 @@ public class Aim : MonoBehaviour
             this.gameObject.SetActive(false);
         }
 
-        if(comboCounter == 6)
+        if(comboCounter == 5)
         {
             currentAmmo += 6;
             ui_manager.UpdateAmmo(currentAmmo);
@@ -105,6 +109,7 @@ public class Aim : MonoBehaviour
                     RaycastHit2D pit = hits[i];   //makes the value from the hit list into a Raycast value via pits
                     if (pit.collider.gameObject.tag == ("Enemy"))
                     {
+                        
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
                         comboCounter++;
                         ui_manager.UpdateCombo(comboCounter);
@@ -121,13 +126,6 @@ public class Aim : MonoBehaviour
                         ui_manager.UpdateCombo(comboCounter);
                         
                     }
-
-                  //  else if(pit.collider.gameObject.tag == ("ammoCrate"))
-                  //  {
-                  //      Destroy(pit.collider.gameObject);
-                  //      currentAmmo += 2;
-                  //      ui_manager.UpdateAmmo(currentAmmo);
-                  //  }
                 }
                
             }
@@ -139,7 +137,7 @@ public class Aim : MonoBehaviour
         
     }
 
-
+   
 }
 
 
