@@ -109,7 +109,8 @@ public class Aim : MonoBehaviour
                     RaycastHit2D pit = hits[i];   //makes the value from the hit list into a Raycast value via pits
                     if (pit.collider.gameObject.tag == ("Enemy"))
                     {
-                        
+                        enemyAnimator.SetBool("IsDead", true);
+                        StartCoroutine(AnimationDelay());
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
                         comboCounter++;
                         ui_manager.UpdateCombo(comboCounter);
@@ -137,6 +138,10 @@ public class Aim : MonoBehaviour
         
     }
 
+ IEnumerator AnimationDelay()
+    {
+        yield return new WaitForSeconds(1f);
+    }
    
 }
 
