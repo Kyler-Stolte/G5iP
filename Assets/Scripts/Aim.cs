@@ -35,6 +35,9 @@ public class Aim : MonoBehaviour
 
     private Animator enemyAnimator;
 
+    [SerializeField] private AudioClip[] crossHairSounds;
+    private AudioSource audioSource;
+
    
 
 
@@ -50,7 +53,12 @@ public class Aim : MonoBehaviour
         StartPos = AimPos.position;
 
         ui_manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();//needs to find the canvas object in the UI component
-        enemyAnimator = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<Animator>();
+       // enemyAnimator = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = crossHairSounds[2];
+        audioSource.Play();
+ 
 
         comboCounter = 0;
 
@@ -101,6 +109,7 @@ public class Aim : MonoBehaviour
 
             if (Physics2D.Raycast(ray.origin, ray.direction, new ContactFilter2D(), hits) > 0) //adds ray collisions to the list
            {
+                
                 currentAmmo--;//takes away our current ammo
                 ui_manager.UpdateAmmo(currentAmmo);//updates the UI manager of our current ammo
 
@@ -109,8 +118,12 @@ public class Aim : MonoBehaviour
                     RaycastHit2D pit = hits[i];   //makes the value from the hit list into a Raycast value via pits
                     if (pit.collider.gameObject.tag == ("Enemy"))
                     {
-                        enemyAnimator.SetBool("IsDead", true);
-                        StartCoroutine(AnimationDelay());
+                        // enemyAnimator.SetBool("IsDead", true);
+                        // StartCoroutine(AnimationDelay());
+
+                        audioSource.clip = crossHairSounds[0];
+                        audioSource.Play();
+
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
                         comboCounter++;
                         ui_manager.UpdateCombo(comboCounter);
@@ -138,10 +151,10 @@ public class Aim : MonoBehaviour
         
     }
 
- IEnumerator AnimationDelay()
-    {
-        yield return new WaitForSeconds(1f);
-    }
+ //IEnumerator AnimationDelay()
+ //   {
+ //       yield return new WaitForSeconds(1f);
+ //   }
    
 }
 

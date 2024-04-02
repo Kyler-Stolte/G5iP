@@ -28,10 +28,14 @@ public class UI_Manager : MonoBehaviour
 
     private bool menuOpen;
     private bool pauseOpen;
+
+    [SerializeField] private AudioClip[] UISounds;
+    private AudioSource audioSource;
     
 
     private void Start()
     {
+       audioSource = GetComponent<AudioSource>();
         menuOpen = false;
         pauseOpen = false;
     }
@@ -78,6 +82,9 @@ public class UI_Manager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q) && menuOpen == true)
         {
+            audioSource.clip = UISounds[1];
+            audioSource.Play();
+
             objectiveMenu.SetActive(false);
 
             menuOpen = false;
@@ -85,13 +92,18 @@ public class UI_Manager : MonoBehaviour
 
         else if(Input.GetKeyDown(KeyCode.Q) && menuOpen == false)
         {
-           objectiveMenu.SetActive(true);
+            audioSource.clip = UISounds[1];
+            audioSource.Play();
+
+            objectiveMenu.SetActive(true);
 
             menuOpen = true;
         }
 
         if(Input.GetKeyDown(KeyCode.P) && pauseOpen == true) 
         {
+            audioSource.clip = UISounds[0];
+            audioSource.Play();
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
             pauseOpen = false;       
@@ -99,6 +111,8 @@ public class UI_Manager : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.P) && pauseOpen == false)
         {
+            audioSource.clip = UISounds[0];
+            audioSource.Play();
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             pauseOpen = true;

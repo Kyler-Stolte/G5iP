@@ -8,9 +8,15 @@ public class Gun : MonoBehaviour
 
     public Transform Tracker;
     public float Angle;
+
+    [SerializeField] private AudioClip[] gunSounds;
+
+    private AudioSource audioSource;
+
+
     private void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
         Tracker.position = transform.position;
     }
 
@@ -28,6 +34,8 @@ public class Gun : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) == true)
         {
+            audioSource.clip = gunSounds[0];
+            audioSource.Play();
             animator.SetBool("IsClicked", true);
             animator.SetBool("IsNotClicked", false);
         }
