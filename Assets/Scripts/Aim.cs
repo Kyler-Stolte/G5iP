@@ -85,7 +85,7 @@ public class Aim : MonoBehaviour
             this.gameObject.SetActive(false);
         }
 
-        if(comboCounter == 5)
+        if(comboCounter >= 5)
         {
             audioSource.clip = crossHairSounds[1];
             audioSource.Play();

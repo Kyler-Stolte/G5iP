@@ -504,7 +504,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3899766209c7e0d4e9b11bbbab6030a6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6c9d6c3464375454f974c1ad94bedcd7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1036,7 +1036,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9e311deb50482ef4e96eb32f457d3aeb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1132,7 +1132,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9edc1a06f7c4e3d418a9d2967360196a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1515,7 +1515,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1f7c9227b1c235240826edd21ec8b991, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1524,7 +1524,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.5687326
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1839,7 +1839,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 9edc1a06f7c4e3d418a9d2967360196a, type: 3}
     - target: {fileID: 5606996451453299711, guid: 14ef065457053c146905d738b8897e3c, type: 3}
       propertyPath: UISounds.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5606996451453299711, guid: 14ef065457053c146905d738b8897e3c, type: 3}
       propertyPath: UISounds.Array.data[0]
@@ -1849,6 +1849,10 @@ PrefabInstance:
       propertyPath: UISounds.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 9edc1a06f7c4e3d418a9d2967360196a, type: 3}
+    - target: {fileID: 5606996451453299711, guid: 14ef065457053c146905d738b8897e3c, type: 3}
+      propertyPath: UISounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e311deb50482ef4e96eb32f457d3aeb, type: 3}
     - target: {fileID: 5672403139351131221, guid: 14ef065457053c146905d738b8897e3c, type: 3}
       propertyPath: m_SizeDelta.x
       value: 63.65
@@ -2006,7 +2010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4973465770026464674, guid: c8995c50effddf14e903f2244654bf6f, type: 3}
       propertyPath: StartTimeBetweenSpawns
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4973465770026464674, guid: c8995c50effddf14e903f2244654bf6f, type: 3}
       propertyPath: spawnPoint.Array.data[0]
@@ -2242,6 +2246,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8255939393681438214, guid: ceeb961d532f51243a5f715d1c1c76d9, type: 3}
+      propertyPath: m_Radius
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 8717793706655054629, guid: ceeb961d532f51243a5f715d1c1c76d9, type: 3}
       propertyPath: Cam
       value: 
@@ -2260,12 +2268,16 @@ PrefabInstance:
       objectReference: {fileID: 1168757706}
     - target: {fileID: 8717793706655054629, guid: ceeb961d532f51243a5f715d1c1c76d9, type: 3}
       propertyPath: crossHairSounds.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8717793706655054629, guid: ceeb961d532f51243a5f715d1c1c76d9, type: 3}
       propertyPath: crossHairSounds.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 1f7c9227b1c235240826edd21ec8b991, type: 3}
+    - target: {fileID: 8717793706655054629, guid: ceeb961d532f51243a5f715d1c1c76d9, type: 3}
+      propertyPath: crossHairSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a3f3c24b211f65a4f8baebeaeb01ef77, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2681,7 +2693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8993207538893609851, guid: f7fd02accf99be440931a17cc5172e89, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2837,7 +2849,7 @@ PrefabInstance:
       objectReference: {fileID: 1168757706}
     - target: {fileID: 2979070413183444134, guid: baa3167547e2890459e0ac79e1f0dbda, type: 3}
       propertyPath: m_SortingOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4398910984862099593, guid: baa3167547e2890459e0ac79e1f0dbda, type: 3}
       propertyPath: m_Name
