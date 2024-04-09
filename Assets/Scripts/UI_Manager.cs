@@ -35,15 +35,23 @@ public class UI_Manager : MonoBehaviour
     private bool pauseOpen;
 
     [SerializeField] private AudioClip[] UISounds;
-    private AudioSource audioSource;
+    private AudioSource audioSource1;
+    private AudioSource audioSource2;
+    private AudioSource audioSource3;
     
     
 
     private void Start()
     {
-       audioSource = GetComponent<AudioSource>();
+       audioSource1 = GetComponent<AudioSource>();
+        audioSource2 = GetComponent<AudioSource>();
+        audioSource3 = GetComponent<AudioSource>();
+
         menuOpen = false;
         pauseOpen = false;
+
+        audioSource3.clip = UISounds[2];
+        audioSource3.Play();
     }
 
     public void UpdateAmmo (int count)//updates the ammo counter takes in the int amount of the ammo
@@ -101,8 +109,8 @@ public class UI_Manager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q) && menuOpen == true)
         {
-            audioSource.clip = UISounds[1];
-            audioSource.Play();
+            audioSource2.clip = UISounds[1];
+            audioSource2.Play();
 
             objectiveMenu.SetActive(false);
 
@@ -111,8 +119,8 @@ public class UI_Manager : MonoBehaviour
 
         else if(Input.GetKeyDown(KeyCode.Q) && menuOpen == false)
         {
-            audioSource.clip = UISounds[1];
-            audioSource.Play();
+            audioSource2.clip = UISounds[1];
+            audioSource2.Play();
 
             objectiveMenu.SetActive(true);
 
@@ -121,8 +129,8 @@ public class UI_Manager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.P) && pauseOpen == true) 
         {
-            audioSource.clip = UISounds[0];
-            audioSource.Play();
+            audioSource1.clip = UISounds[0];
+            audioSource1.Play();
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
             pauseOpen = false;       
@@ -130,8 +138,8 @@ public class UI_Manager : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.P) && pauseOpen == false)
         {
-            audioSource.clip = UISounds[0];
-            audioSource.Play();
+            audioSource1.clip = UISounds[0];
+            audioSource1.Play();
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             pauseOpen = true;
