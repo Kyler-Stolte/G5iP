@@ -56,13 +56,10 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateAmmo (int count)//updates the ammo counter takes in the int amount of the ammo
     {
-        int ammo = count;
-        _ammoText.text = "Ammo:" + ammo;//updates the count of the ammo
-        count = ammo;
-        if (ammo == 0) {
-            gameOver.SetActive(true);
-
-        }
+        
+        _ammoText.text = "Ammo:" + count;//updates the count of the ammo
+       
+       
     }
 
 
@@ -79,7 +76,7 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateCombo(int combo)
     {
-        _comboCounter.text = "" + combo;
+        _comboCounter.text = "Combo" + combo;
     }
 
     public void UpdateScore(int score)
