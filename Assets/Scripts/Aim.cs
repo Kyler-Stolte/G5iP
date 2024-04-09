@@ -56,8 +56,7 @@ public class Aim : MonoBehaviour
        // enemyAnimator = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
 
-        audioSource.clip = crossHairSounds[2];
-        audioSource.Play();
+     
  
 
         comboCounter = 0;
@@ -88,6 +87,9 @@ public class Aim : MonoBehaviour
 
         if(comboCounter == 5)
         {
+            audioSource.clip = crossHairSounds[1];
+            audioSource.Play();
+
             currentAmmo += 6;
             ui_manager.UpdateAmmo(currentAmmo);
             comboCounter = 0;
