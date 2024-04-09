@@ -44,8 +44,8 @@ public class UI_Manager : MonoBehaviour
     private void Start()
     {
        audioSource1 = GetComponent<AudioSource>();
-        audioSource2 = GetComponent<AudioSource>();
-        audioSource3 = GetComponent<AudioSource>();
+       audioSource2 = GetComponent<AudioSource>();
+       audioSource3 = GetComponent<AudioSource>();
 
         menuOpen = false;
         pauseOpen = false;
@@ -76,7 +76,7 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateCombo(int combo)
     {
-        _comboCounter.text = "Combo" + combo;
+        _comboCounter.text = "Combo:" + combo;
     }
 
     public void UpdateScore(int score)
