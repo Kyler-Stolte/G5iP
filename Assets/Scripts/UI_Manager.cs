@@ -1,4 +1,6 @@
 
+using System;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,20 +8,23 @@ using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
     [SerializeField]
-    private Text _ammoText;//need to set the text for the ammo
+    private TMP_Text _ammoText;//need to set the text for the ammo
 
     [SerializeField]
-    private Text _lifeText;//lives
+    private TMP_Text _lifeText;//lives
 
    public float currentTime = 60f; //starting time
     [SerializeField]
-    private Text _timeText;//time
+    private TMP_Text _timeText;//time
 
     [SerializeField]
     GameObject gameOver; //game over screen
 
     [SerializeField]
-    private Text _comboCounter;
+    private TMP_Text _comboCounter;
+
+    [SerializeField]
+    private TMP_Text _scoreText;
 
     public GameObject objectiveMenu;
 
@@ -32,6 +37,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private AudioClip[] UISounds;
     private AudioSource audioSource;
     
+    
 
     private void Start()
     {
@@ -42,7 +48,13 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateAmmo (int count)//updates the ammo counter takes in the int amount of the ammo
     {
-        _ammoText.text = "Ammo:" + count;//updates the count of the ammo
+        int ammo = count;
+        _ammoText.text = "Ammo:" + ammo;//updates the count of the ammo
+        count = ammo;
+        if (ammo == 0) {
+            gameOver.SetActive(true);
+
+        }
     }
 
 
@@ -59,18 +71,25 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateCombo(int combo)
     {
-        _comboCounter.text = "Combo:" + combo;
+        _comboCounter.text = "" + combo;
+    }
+
+    public void UpdateScore(int score)
+    {
+       
     }
 
     void Update()
     {
         if (currentTime > 0)
         {
+            Time.timeScale = 1;
             currentTime -= Time.deltaTime; //time counts down in seconds
         }
         else
         {
             currentTime = 0f;
+           
         }
         UpdateTime(currentTime);
 
