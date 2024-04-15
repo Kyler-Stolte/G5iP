@@ -17,8 +17,7 @@ public class Aim : MonoBehaviour
     private int specialAmmo = 5;
     private int currentSpecialAmmo;
 
-    private int lifeCount = 3;
-    private int currentLife;
+   
 
     private int Score = 10;
     private int CurrentScore;
@@ -51,7 +50,6 @@ public class Aim : MonoBehaviour
 
         currentAmmo = maxAmmo;
         currentSpecialAmmo = specialAmmo;
-        currentLife = lifeCount;
         Score = CurrentScore;
 
         StartPos = AimPos.position;
@@ -84,11 +82,7 @@ public class Aim : MonoBehaviour
             Cam.transform.position = new Vector3(transform.position.x, 0, -10) * CamSpeed;
         }
 
-        if (lifeCount == 0)
-        {
-            this.gameObject.SetActive(false);
-        }
-
+       
         if(comboCounter >= 5)
         {
             audioSource.clip = crossHairSounds[1];
@@ -136,12 +130,7 @@ public class Aim : MonoBehaviour
                         comboCounter++;
                         ui_manager.UpdateCombo(comboCounter);
                     }
-                    else if(pit.collider.gameObject.tag != ("Enemy"))
-                    {
-                        lifeCount--;
-                        ui_manager.UpdateLife(lifeCount);//if pits contains the special tag it removes a life
-                        
-                    }
+                  
 
                     else if(hits.Count == 1)
                     {
@@ -158,10 +147,7 @@ public class Aim : MonoBehaviour
             gameOver.SetActive(true);
         }
         
-        if(lifeCount == 0)
-        {
-            gameOver.gameObject.SetActive(true);
-        }
+       
 
         
     }

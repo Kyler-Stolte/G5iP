@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     private Spawning_Script spawner;
 
-    public Animator animator;
+    
 
    
 

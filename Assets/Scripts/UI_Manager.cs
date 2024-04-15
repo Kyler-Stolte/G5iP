@@ -10,8 +10,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private TMP_Text _ammoText;//need to set the text for the ammo
 
-    [SerializeField]
-    private TMP_Text _lifeText;//lives
+   
 
    public float currentTime = 60f; //starting time
     [SerializeField]
@@ -64,10 +63,7 @@ public class UI_Manager : MonoBehaviour
 
 
 
-    public void UpdateLife(int lives)
-    {
-        _lifeText.text = "Lives:" + lives;
-    }
+   
 
     public void UpdateTime(float secondsDisplay)
     {
