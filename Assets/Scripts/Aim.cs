@@ -19,7 +19,9 @@ public class Aim : MonoBehaviour
 
     private int lifeCount = 3;
     private int currentLife;
-    
+
+    private int Score = 10;
+    private int CurrentScore;
 
     private UI_Manager ui_manager;//need to call the UI manager set it to ui_manager
 
@@ -38,7 +40,8 @@ public class Aim : MonoBehaviour
     [SerializeField] private AudioClip[] crossHairSounds;
     private AudioSource audioSource;
 
-   
+    [SerializeField]
+    GameObject gameOver;
 
 
 
@@ -49,6 +52,7 @@ public class Aim : MonoBehaviour
         currentAmmo = maxAmmo;
         currentSpecialAmmo = specialAmmo;
         currentLife = lifeCount;
+        Score = CurrentScore;
 
         StartPos = AimPos.position;
 
@@ -118,22 +122,25 @@ public class Aim : MonoBehaviour
                 for (int i = 0; i < hits.Count; i++)
                 {
                     RaycastHit2D pit = hits[i];   //makes the value from the hit list into a Raycast value via pits
-                    if (pit.collider.gameObject.tag == ("Enemy"))
+                    if (pit.collider.gameObject.tag == ("Enemy") || pit.collider.gameObject.tag.Contains("Clone"))
                     {
                         // enemyAnimator.SetBool("IsDead", true);
                         // StartCoroutine(AnimationDelay());
 
                         audioSource.clip = crossHairSounds[0];
                         audioSource.Play();
+                        CurrentScore++;
+                        ui_manager.UpdateScore(CurrentScore);
 
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
                         comboCounter++;
                         ui_manager.UpdateCombo(comboCounter);
                     }
-                    else if(pit.collider.gameObject.tag == ("Special"))
+                    else if(pit.collider.gameObject.tag != ("Enemy"))
                     {
                         lifeCount--;
                         ui_manager.UpdateLife(lifeCount);//if pits contains the special tag it removes a life
+                        
                     }
 
                     else if(hits.Count == 1)
@@ -148,6 +155,12 @@ public class Aim : MonoBehaviour
         }else if (currentAmmo == 0)//if we are out of ammo player cant shoot
         {
             this.gameObject.SetActive(false);
+            gameOver.SetActive(true);
+        }
+        
+        if(lifeCount == 0)
+        {
+            gameOver.gameObject.SetActive(true);
         }
 
         

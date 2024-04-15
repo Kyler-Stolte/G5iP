@@ -38,7 +38,7 @@ public class UI_Manager : MonoBehaviour
     private AudioSource audioSource1;
     private AudioSource audioSource2;
     private AudioSource audioSource3;
-    
+
     
 
     private void Start()
@@ -63,6 +63,7 @@ public class UI_Manager : MonoBehaviour
     }
 
 
+
     public void UpdateLife(int lives)
     {
         _lifeText.text = "Lives:" + lives;
@@ -81,7 +82,7 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-       
+       _scoreText.text = "Score" + score;
     }
 
     void Update()
@@ -144,6 +145,7 @@ public class UI_Manager : MonoBehaviour
 
     }
 
-   
+  
 
 }
+
