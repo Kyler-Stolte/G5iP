@@ -2319,7 +2319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754018054878968015, guid: 14ef065457053c146905d738b8897e3c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5123469403966838337, guid: 14ef065457053c146905d738b8897e3c, type: 3}
       propertyPath: m_Name
@@ -2952,6 +2952,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da54cdc762a23124aaa36f437d9f70d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectstoShoot: []
+  descriptionText: {fileID: 0}
+  tallyText: {fileID: 0}
+  totalObjects: 4
+  objectsShot: 0
+  Index: 0
 --- !u!114 &2046538385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3061,6 +3067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7047e1e479dc66f448d69c149f9111a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: 
 --- !u!4 &2052866223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6078365433324876872, guid: c8995c50effddf14e903f2244654bf6f, type: 3}
