@@ -8,6 +8,7 @@ public class SceneManagment : MonoBehaviour
    public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName); // Load's named scene
+        UnityEngine.Cursor.visible = true;
     }
 
     public void QuitGame()

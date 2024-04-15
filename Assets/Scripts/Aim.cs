@@ -82,7 +82,8 @@ public class Aim : MonoBehaviour
             Cam.transform.position = new Vector3(transform.position.x, 0, -10) * CamSpeed;
         }
 
-       
+        
+
         if(comboCounter >= 5)
         {
             audioSource.clip = crossHairSounds[1];
@@ -116,21 +117,36 @@ public class Aim : MonoBehaviour
                 for (int i = 0; i < hits.Count; i++)
                 {
                     RaycastHit2D pit = hits[i];   //makes the value from the hit list into a Raycast value via pits
-                    if (pit.collider.gameObject.tag == ("Enemy") || pit.collider.gameObject.tag.Contains("Clone"))
+                    if (pit.collider.gameObject.tag == ("Enemy"))// || pit.collider.gameObject.tag.Contains("Clone"))
                     {
                         // enemyAnimator.SetBool("IsDead", true);
                         // StartCoroutine(AnimationDelay());
 
                         audioSource.clip = crossHairSounds[0];
                         audioSource.Play();
-                        CurrentScore++;
-                        ui_manager.UpdateScore(CurrentScore);
+                        // CurrentScore++;
+                        // ui_manager.UpdateScore(CurrentScore);
+
+                        Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
+                      //  comboCounter++;
+                      //  ui_manager.UpdateCombo(comboCounter);
+                    }
+
+                    else if (pit.collider.gameObject.tag == ("Plaster"))
+                    {
+                        // enemyAnimator.SetBool("IsDead", true);
+                        // StartCoroutine(AnimationDelay());
+
+                        audioSource.clip = crossHairSounds[0];
+                        audioSource.Play();
+                         CurrentScore++;
+                         ui_manager.UpdateScore(CurrentScore);
 
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
                         comboCounter++;
                         ui_manager.UpdateCombo(comboCounter);
                     }
-                  
+
 
                     else if(hits.Count == 1)
                     {
@@ -147,7 +163,7 @@ public class Aim : MonoBehaviour
             gameOver.SetActive(true);
         }
         
-       
+     
 
         
     }

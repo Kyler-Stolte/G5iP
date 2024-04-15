@@ -78,7 +78,7 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-       _scoreText.text = "Score" + score;
+       _scoreText.text = "Score: " + score;
     }
 
     void Update()
