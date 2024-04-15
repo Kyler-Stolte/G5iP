@@ -51,7 +51,8 @@ public class UI_Manager : MonoBehaviour
         menuOpen = false;
         pauseOpen = false;
 
-        audioSource3.clip = UISounds[2];
+        
+        audioSource3.PlayOneShot(UISounds[2]);
         audioSource3.volume = 0.067f;
         audioSource3.Play();
 

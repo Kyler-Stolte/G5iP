@@ -2036,7 +2036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 22.550003, y: 3.7}
+  m_AnchoredPosition: {x: 22.550003, y: 3.7000008}
   m_SizeDelta: {x: -45.1, y: -8.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1065142359
@@ -4175,7 +4175,8 @@ MonoBehaviour:
 
     Q-Toggle Objective Menu
 
-    P-Toggle Pause Menu
+    ESC-Toggle Pause
+    Menu
 
 '
   m_isRightToLeft: 0
