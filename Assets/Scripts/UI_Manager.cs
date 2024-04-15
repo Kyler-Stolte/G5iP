@@ -30,6 +30,8 @@ public class UI_Manager : MonoBehaviour
     public GameObject Spawner;
     public GameObject pauseMenu;
 
+    public GameObject Tutorial;
+
     private bool menuOpen;
     private bool pauseOpen;
 
@@ -50,7 +52,16 @@ public class UI_Manager : MonoBehaviour
         pauseOpen = false;
 
         audioSource3.clip = UISounds[2];
+        audioSource3.volume = 0.067f;
         audioSource3.Play();
+
+        Tutorial.gameObject.SetActive(true);
+
+      
+
+      
+
+
     }
 
     public void UpdateAmmo (int count)//updates the ammo counter takes in the int amount of the ammo
@@ -83,6 +94,12 @@ public class UI_Manager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Tutorial.gameObject.SetActive(false);
+        }
+
+
         if (currentTime > 0)
         {
             Time.timeScale = 1;
@@ -121,7 +138,7 @@ public class UI_Manager : MonoBehaviour
             menuOpen = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.P) && pauseOpen == true) 
+        if(Input.GetKeyDown(KeyCode.Escape) && pauseOpen == true) 
         {
             audioSource1.clip = UISounds[0];
             audioSource1.Play();
@@ -130,7 +147,7 @@ public class UI_Manager : MonoBehaviour
             pauseOpen = false;       
         }
 
-        else if (Input.GetKeyDown(KeyCode.P) && pauseOpen == false)
+        else if (Input.GetKeyDown(KeyCode.Escape) && pauseOpen == false)
         {
             audioSource1.clip = UISounds[0];
             audioSource1.Play();
