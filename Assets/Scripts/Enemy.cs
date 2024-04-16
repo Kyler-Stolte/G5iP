@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -21,9 +23,9 @@ public class Enemy : MonoBehaviour
 
     private Spawning_Script spawner;
 
-   
+    private bool IsOn = false;
 
-   
+    private float Fast;
 
    
 
@@ -39,6 +41,9 @@ public class Enemy : MonoBehaviour
         TargetPos = posB.position;
 
         spawner = GetComponent<Spawning_Script>();
+
+
+        Fast = speed * 2;
 
         StartCoroutine(Despawn());
 
@@ -58,19 +63,19 @@ public class Enemy : MonoBehaviour
         {
             TargetPos = posA.position;
         }
-        transform.position = Vector3.MoveTowards(transform.position, TargetPos, speed * Time.deltaTime);
-
-       // if(Vector2.Distance(transform.position,posB.position) > Vector2.Distance(transform.position, posA.position))
-       // {
-       //     transform.localScale += new Vector3(0.001f, 0.001f, 0f);
-       // }
-
-       // if (Vector2.Distance(transform.position, posB.position) < Vector2.Distance(transform.position, posA.position))
-       // {
-       //     transform.localScale += new Vector3(-0.001f, -0.001f, 0f);
-       // }
 
 
+
+        IsOn = Input.GetKeyDown(KeyCode.H);
+        if (IsOn == false) 
+        {
+            transform.position = Vector3.MoveTowards(transform.position, TargetPos, speed * Time.deltaTime);
+        }
+        if (IsOn == true)
+            print("GOTTA GO FAST");
+        {
+            transform.position = Vector3.MoveTowards(transform.position, TargetPos, Fast * Time.deltaTime);
+        }
     }
 
     private void OnDrawGizmos()

@@ -30,6 +30,9 @@ public class Spawning_Script : MonoBehaviour
 
     private int ResetTime;
 
+    private Enemy enemy;
+
+
 
 
 
@@ -42,7 +45,7 @@ public class Spawning_Script : MonoBehaviour
        // randPosition = Random.Range(0, spawnPoint.Length);
 
         
-
+        enemy = FindAnyObjectByType<Enemy>().GetComponent<Enemy>();
         
 
     }
@@ -57,27 +60,7 @@ public class Spawning_Script : MonoBehaviour
 
         if (TimeBetwSpawns <= 0)
         {
-
-           // if (timer >= 10 && timer < 20)
-           // {
-           //     SpawnRandEnemy();
-           //
-           //     if (timer >= 40 && EnemyActive == true)
-           //     {
-           //         this.gameObject.SetActive(false);
-           //         timer = ResetTime;
-           //     }
-
-              
-         //   }
-
-           // else if (timer >= 20)
-           // {
-           //     SpawnCurvedEnemy();
-           // }
-
             SpawnRandEnemy();
-
         }
         else
         {
