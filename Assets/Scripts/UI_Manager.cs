@@ -25,6 +25,10 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private TMP_Text _scoreText;
 
+    [SerializeField]
+    private TMP_Text _ScoreTXT;
+
+
     public GameObject objectiveMenu;
 
     public GameObject Spawner;
@@ -40,6 +44,11 @@ public class UI_Manager : MonoBehaviour
     private AudioSource audioSource2;
     private AudioSource audioSource3;
 
+    private Aim aim;
+
+    public int endScore;
+
+
     
 
     private void Start()
@@ -47,6 +56,8 @@ public class UI_Manager : MonoBehaviour
        audioSource1 = GetComponent<AudioSource>();
        audioSource2 = GetComponent<AudioSource>();
        audioSource3 = GetComponent<AudioSource>();
+
+        aim = GameObject.Find("Crosshair").GetComponent<Aim>();
 
         menuOpen = false;
         pauseOpen = false;
@@ -93,8 +104,15 @@ public class UI_Manager : MonoBehaviour
        _scoreText.text = "Score: " + score;
     }
 
+    public void UpdateEndScore(int score)
+    {
+        _ScoreTXT.text = _scoreText.text;
+    }
+
     void Update()
     {
+
+        
         if (Input.GetKeyDown(KeyCode.T))
         {
             Tutorial.gameObject.SetActive(false);
@@ -113,10 +131,14 @@ public class UI_Manager : MonoBehaviour
         }
         UpdateTime(currentTime);
 
-        if (currentTime == 0)//if time reaches 0 then game over
+        if (currentTime <= 0)//if time reaches 0 then game over
         {
+            endScore = aim.CurrentScore;
             Time.timeScale = 0;
             gameOver.gameObject.SetActive(true);
+            UpdateEndScore(endScore);
+            UnityEngine.Cursor.visible = true;
+            Time.timeScale = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && menuOpen == true)
@@ -145,7 +167,8 @@ public class UI_Manager : MonoBehaviour
             audioSource1.Play();
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
-            pauseOpen = false;       
+            pauseOpen = false;
+            UnityEngine.Cursor.visible = false;
         }
 
         else if (Input.GetKeyDown(KeyCode.Escape) && pauseOpen == false)
@@ -155,6 +178,7 @@ public class UI_Manager : MonoBehaviour
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             pauseOpen = true;
+            UnityEngine.Cursor.visible = true;
         }
 
     }

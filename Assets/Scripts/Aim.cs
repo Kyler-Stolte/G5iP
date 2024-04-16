@@ -20,7 +20,7 @@ public class Aim : MonoBehaviour
    
 
     private int Score = 10;
-    private int CurrentScore;
+    public int CurrentScore;
 
     private UI_Manager ui_manager;//need to call the UI manager set it to ui_manager
 
@@ -161,6 +161,8 @@ public class Aim : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             gameOver.SetActive(true);
+            UnityEngine.Cursor.visible = true;
+            ui_manager.UpdateEndScore(CurrentScore);
         }
         
      
