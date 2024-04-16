@@ -30,7 +30,6 @@ public class Spawning_Script : MonoBehaviour
 
     private int ResetTime;
 
-    private Enemy enemy;
 
 
 
@@ -45,7 +44,7 @@ public class Spawning_Script : MonoBehaviour
        // randPosition = Random.Range(0, spawnPoint.Length);
 
         
-        enemy = FindAnyObjectByType<Enemy>().GetComponent<Enemy>();
+        
         
 
     }

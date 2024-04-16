@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public Transform posA;
     public Transform posB;
 
-    public float speed;
+    private float speed = 7f;
 
     Vector3 TargetPos;
 
@@ -23,9 +23,11 @@ public class Enemy : MonoBehaviour
 
     private Spawning_Script spawner;
 
-    private bool IsOn = false;
+    private bool IsOn;
 
-    private float Fast;
+    private float Fast = 14f;
+
+    private UI_Manager manager;
 
    
 
@@ -34,7 +36,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+
 
         rb = GetComponent<Rigidbody>();
 
@@ -43,7 +46,9 @@ public class Enemy : MonoBehaviour
         spawner = GetComponent<Spawning_Script>();
 
 
-        Fast = speed * 2;
+    
+
+        
 
         StartCoroutine(Despawn());
 
@@ -52,32 +57,40 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-       
-       
-
-        if (Vector2.Distance(transform.position, posA.position) < .1f)
+        if (!IsOn)
         {
-            TargetPos = posB.position;
+            IsOn = Input.GetKeyDown(KeyCode.H);
+        }
+
+
+           if (Vector2.Distance(transform.position, posA.position) < .1f)
+           {
+               TargetPos = posB.position;
+               
+           }
+           if (Vector2.Distance(transform.position, posB.position) < .1f)
+           {
+               TargetPos = posA.position;
+           }
+          if (IsOn == true)
+          {
+           
+                transform.position = Vector3.MoveTowards(transform.position, TargetPos, Fast * Time.deltaTime);
             
+
+           if (Fast < 14f || Fast > 14f)
+           {
+                Fast = 14;
+           }
         }
-        if (Vector2.Distance(transform.position, posB.position) < .1f)
-        {
-            TargetPos = posA.position;
-        }
-
-
-
-        IsOn = Input.GetKeyDown(KeyCode.H);
-        if (IsOn == false) 
-        {
+          else if(IsOn == false)
+          {
             transform.position = Vector3.MoveTowards(transform.position, TargetPos, speed * Time.deltaTime);
-        }
-        if (IsOn == true)
-            print("GOTTA GO FAST");
-        {
-            transform.position = Vector3.MoveTowards(transform.position, TargetPos, Fast * Time.deltaTime);
-        }
+          }
+        
+ 
+
+       
     }
 
     private void OnDrawGizmos()
