@@ -52,6 +52,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+       
        
 
         if (Vector2.Distance(transform.position, posA.position) < .1f)
