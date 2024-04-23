@@ -34,7 +34,7 @@ public class Aim : MonoBehaviour
 
     private int comboCounter;
 
-    private Animator enemyAnimator;
+    public Animator enemyAnimator;
 
     [SerializeField] private AudioClip[] crossHairSounds;
     private AudioSource audioSource;
@@ -42,6 +42,7 @@ public class Aim : MonoBehaviour
     [SerializeField]
     GameObject gameOver;
 
+    public GameObject ObjectForAnim;
 
 
     private void Start()
@@ -54,18 +55,38 @@ public class Aim : MonoBehaviour
 
         StartPos = AimPos.position;
 
+
         ui_manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();//needs to find the canvas object in the UI component
        // enemyAnimator = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
 
      
- 
+        ObjectForAnim.SetActive(false);
 
         comboCounter = 0;
 
 
 
     }
+
+    private void EnemyAnim()
+    {
+        StartCoroutine(Die());
+    }
+
+    IEnumerator Die()
+    {
+
+        GameObject AnimEnemy = Instantiate(ObjectForAnim, transform.position, Quaternion.identity);
+        AnimEnemy.SetActive(true);
+        enemyAnimator.SetBool("isDead", true);
+        yield return new WaitForSeconds(.5f);
+        AnimEnemy.SetActive(false);
+      
+        
+    }
+  
+
 
 
 
@@ -128,8 +149,14 @@ public class Aim : MonoBehaviour
                         // ui_manager.UpdateScore(CurrentScore);
 
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
-                      //  comboCounter++;
-                      //  ui_manager.UpdateCombo(comboCounter);
+                                                           //  comboCounter++;
+                                                           //  ui_manager.UpdateCombo(comboCounter);
+
+                        EnemyAnim();
+                        
+                       
+
+                        
                     }
 
                     else if (pit.collider.gameObject.tag == ("Plaster"))
@@ -145,6 +172,8 @@ public class Aim : MonoBehaviour
                         Destroy(pit.collider.gameObject);  //if pits contains the Enemy tag it destroys the Enemy Object
                         comboCounter++;
                         ui_manager.UpdateCombo(comboCounter);
+
+                        EnemyAnim();
                     }
 
 
@@ -169,7 +198,6 @@ public class Aim : MonoBehaviour
 
         
     }
-
  //IEnumerator AnimationDelay()
  //   {
  //       yield return new WaitForSeconds(1f);
