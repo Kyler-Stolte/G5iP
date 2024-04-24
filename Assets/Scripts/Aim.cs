@@ -80,7 +80,7 @@ public class Aim : MonoBehaviour
         GameObject AnimEnemy = Instantiate(ObjectForAnim, transform.position, Quaternion.identity);
         AnimEnemy.SetActive(true);
         enemyAnimator.SetBool("isDead", true);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         AnimEnemy.SetActive(false);
       
         
